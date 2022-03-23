@@ -1,0 +1,11 @@
+title uusi muistiinpano
+
+note over selain:
+painetaan tallenna nappia -> viesti heti näkyviin
+end note
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+selain-->palvelin: {"content":"hello world","date":"2022-03-23T16:58:06.277Z"}
+note over palvelin:
+viesti kuitataan vastaanotetuksi
+end note
+palvelin-->selain: {"message":"note created"}

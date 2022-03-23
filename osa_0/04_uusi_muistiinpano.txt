@@ -1,0 +1,28 @@
+title uusi muistiinpano
+
+
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+note over palvelin:
+viesti tallennetaan palvelimelle -> uudelleenohjauspyyntö
+end note 
+palvelin-->selain: Palvelimen vastaus statuskoodi 302
+note over selain:
+sivu ladataan uudelleen
+end note  
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin-->selain: main.js
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+note over palvelin:
+tämän jälkeen palautuu tallennettu uusi viesti
+end note 
+palvelin-->selain: [{ content: "HauHau", date: "2022-23-03" }, ...]
+
+note over selain:
+suoritetaan tapahtumankäsittelijä
+joka renderöi muistiinpanot näytölle
+end note
